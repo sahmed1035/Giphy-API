@@ -2,21 +2,21 @@
 $(function(){
     // console.log('page loaded');
     //calling renderButton function.searchArray = veggieArray, classToAdd=topicButtons,areaToAddTo
-    renderButtons(veggieArray,'searchButton','#searchButtonsArea');
+    populateButtons(searchArray,'searchButton','#buttonsArea');
 })
 // creating an array to hold the search terms strings.
-var veggieArray = ['Broccoli','spinach','Lettuce','Cauliflower','French beans'];
+var searchArray = ['Broccoli','spinach','Lettuce','Cauliflower','French Beans'];
 
-//creating a function to populate buttons. parameters: veggieArray, classToAdd.
-function renderButtons(veggieArray, classToAdd,areaToAddTo){
+//creating a function to populate buttons. parameters: searchArray, classToAdd.
+function populateButtons(searchArray, classToAdd,areaToAddTo){
     $(areaToAddTo).empty();//avoiding the copies of the buttons
     //for loop to get all the seach terms in the veggieArray.
-    for(i=0; i<veggieArray.length;i++){
+    for(i=0; i<searchArray.length;i++){
         //bringing button to variable a
-        var a = $('<button>');
+        var a = $('<button>'); //will be modifying button element
         a.addClass(classToAdd);  //adding class to button
-        a.attr('data-type',veggieArray[i]); //adding attribute of data-type for each element of the veggieArray.
-        a.text(veggieArray[i]); //displaying the text on the button
+        a.attr('data-type',searchArray[i]); //adding attribute of data-type for each element of the veggieArray.
+        a.text(searchArray[i]); //displaying the text on the button
         $(areaToAddTo).append(a); // appending the buttons to on the html *areaToAddTo
     }
 }
@@ -43,36 +43,55 @@ $(document).on('click', '.searchButton', function(){
                 //placing the rating in the html under a variable p with p tag.
                 var p = $('<p>').text('Rating: '+rating);
                 //collecting animated version of the gif
-                var animatedGif = response.data[i].images.fixed_height.url;
+                var animated = response.data[i].images.fixed_height.url;
                 //collecting still version of the gif
-                var stillGif = response.data[i].images.fixed_height_still.url;
-                //creating image tags
+                var still = response.data[i].images.fixed_height_still.url;
+                //creating reference to image tags
                 var image =$('<img>');
                 //referencing the image variables. first get still image.
-                image.attr('src',stillGif);
+                image.attr('src',still);
                 //referencing the image strings url.
-                image.attr('data-still', 'still');
+                image.attr('data-still', still);
                 
-                image.attr('data-animated', animatedGif);
+                image.attr('data-animated', animated);
                 //giving back still state.
                 image.attr('data-state','still');
                 image.addClass('searchImage'); //giving a searchImage class.
-                //displaying the rating of the gifs.
-                searchDiv.append(p);
+                //displaying the rating of the gifs in the paragraph.
+                searchDiv.append(p); 
                 //displaying the image
                 searchDiv.append(image);
-                // placing in the html div created on html
-                $('#searched-gifs').append(searchDiv);
-
-
-
-
-
-                
-
+                // placing in the searched images in the searches div.
+                $('#searches').append(searchDiv);
             }
-
-
         })
+})
+
+
+//making image animated on click.
+$(document).on('click', '.searchImage', function(){
+    var state = $(this).attr('data-state');
+    if(state == 'still') {
+        $(this).attr('src' , $(this).data('animated'));
+        $(this).attr('data-state', 'animated');
+    } else {
+        $(this).attr('src', $(this).data('still'))
+        $(this).attr('data-state', 'still');
+    }
+
 
 })
+
+
+
+//text box can add new buttons.
+$("#addSearch").on("click",function(){
+    var newSearch = $('input').eq(0).val(); //.eq for ?
+    searchArray.push(newSearch);
+    populateButtons(searchArray, '.searchButton',  '#buttonsArea');
+    return false; //not to submit and reload the page. only the default search buttons to show
+    
+})
+
+
+
