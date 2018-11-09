@@ -1,20 +1,20 @@
 // creating dynamic buttons for search topics upon page loading.
 $(function(){
     // console.log('page loaded');
-    //calling renderButton function.searchArray = veggieArray, classToAdd=topicButtons,areaToAddTo
+    //calling renderButton function searchArray , classToAdd=searchButtons,areaToAddTo
     populateButtons(searchArray,'searchButton','#buttonsArea');
 })
 // creating an array to hold the search terms strings.
-var searchArray = ['Broccoli','spinach','Lettuce','Cauliflower','French Beans'];
+var searchArray = ['winter','snow','kids','holiday','ice-skating','snowflakes', 'ice'];
 
 //creating a function to populate buttons. parameters: searchArray, classToAdd.
 function populateButtons(searchArray, classToAdd,areaToAddTo){
     $(areaToAddTo).empty();//avoiding the copies of the buttons
-    //for loop to get all the seach terms in the veggieArray.
+    //for loop to get all the seach terms in the Array.
     for(i=0; i<searchArray.length;i++){
         //bringing button to variable a
         var a = $('<button>'); //will be modifying button element
-        a.addClass(classToAdd);  //adding class to button
+        a.addClass(classToAdd); //adding class to button
         a.attr('data-type',searchArray[i]); //adding attribute of data-type for each element of the veggieArray.
         a.text(searchArray[i]); //displaying the text on the button
         $(areaToAddTo).append(a); // appending the buttons to on the html *areaToAddTo
@@ -78,20 +78,19 @@ $(document).on('click', '.searchImage', function(){
         $(this).attr('src', $(this).data('still'))
         $(this).attr('data-state', 'still');
     }
-
-
 })
-
 
 
 //text box can add new buttons.
-$("#addSearch").on("click",function(){
-    var newSearch = $('input').eq(0).val(); //.eq for ?
+$("#addSearch").on("click",function(event){
+
+    event.preventDefault();
+    var newSearch = $("input").val(); //.eq for ?
     searchArray.push(newSearch);
-    populateButtons(searchArray, '.searchButton',  '#buttonsArea');
-    return false; //not to submit and reload the page. only the default search buttons to show
+    populateButtons(searchArray, 'searchButton',  '#buttonsArea');
+    // return false; //not to submit and reload the page. only the default search buttons to show
     
-})
+});
 
 
 

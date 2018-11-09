@@ -1,44 +1,68 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Giphy Gifs</title>
-     <!-- CSS Reset Sheet -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+    <!-- CSS Reset Sheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Geo" rel="stylesheet" type="text/css">
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Out Own CSS Sheet -->
+    <link rel="stylesheet" href="./Assets/css/style.css">
 
-    
-
-     <!-- jQuery -->
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- 
-     <!-- Google Font -->
-     <link href="https://fonts.googleapis.com/css?family=Geo" rel="stylesheet" type="text/css">
-     <!-- Bootstrap CDN -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-      <!-- Out Own CSS Sheet -->
-     <link rel="stylesheet" href="./Assets/css/style.css">
- 
 </head>
+
 <body>
-    <!--Area to place all of the topic buttons. will be populating with jQuery-->
-    <div id="buttonsArea"> </div>
 
-    <!--form to get the input search box and submit button-->
-    <form id="search-form">
-        <!--text before the input box-->
-        <label for="search-input">Type in the search word</label>
-        <!--input box-->
-        <input type="text" id="search-input"> <br>
-        <!--submit button-->
-        <input type="submit" value="Submit">
-    </form>
 
-    <!--Area to place all of the searched giphs-->
-    <div id="searches"></div>
 
-   <!-- Script -->
-   <script type="text/javascript" src="./Assets/javascrip/app.js"></script> 
+    <h1 id="myh1">Let It Snow! <small>Let It Snow! </small>
+
+    </h1>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!--Area to place all of the topic buttons. will be populating with jQuery-->
+                <div id="buttonsArea"> </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <!--empty div-->
+            </div>
+            <div class="col-md-4">
+                <form id="search-form">
+                    <!--text before the input box-->
+                    <label for="search-input">Type in the search word:</label>
+                    <!--input box-->
+                    <input type="text" id="search-input">
+                    <!--submit button-->
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <div class="col-md-4">
+                <!--empty div-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!--Area to place all of the searched giphs-->
+                <div id="searches"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="./Assets/javascrip/app.js"></script>
 </body>
+
 </html>

@@ -1,5 +1,16 @@
+h1 {font-family: cursive;
+color:rgb(170,2,19);
+text-align: center;
+font-size: 70px;
+font-weight: bolder;
+margin-top: 10px;
+width: 100%;
+height: 20%;
+border-bottom: goldenrod 10px solid;
+text-shadow: goldenrod 1px 2px;};
+
 #searches {
-    width: 70%
+    width: 100%
 }
 
 .search-item {
@@ -7,44 +18,57 @@
     padding: 10px;
 }
 
-form {
-    width: 30%;
-    float: right;
-    padding: 20px;
+p{font-family: cursive;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+#myh1 {background-image: url("../images/snowflakes_bg_1.jpg");
+    width: 100%;
 }
 
 
 label {
     display: block;
-    font-weight: 700;
+    font-weight: bolder;
     margin-bottom: 10px;
+    font-family: cursive;
+    font-size: 20px;
+     float: left;
+  
 }
 
 input[type = "text"] {
-    width: 100%;
+    width: 70%;
     margin-bottom: 10px;
     height: 30px;
     font-size: 18px;
+    border: 2px solid green;
+    border-radius: 4px;
+   
 }
 
 button, 
 input[type="submit"] {
-    background: purple;
+    background:green;
     color: white;
     border:5px, solid, plum;
     border-radius: 5px;
     padding: 5px 20px;
-    font-size: 18px;
+    font-size: 20px;
     margin: 0 10px 10px 0;
     cursor: pointer;
-    box-shadow: 2px 2px 3px black;
+    float: auto;;
 }
 
 button:hover,
 input[type = "submit"]:hover {
-    background: #334E40;
+   
+    box-shadow: 2px 2px 3px rgb(170,2,19);
 }
 
-button-active{
-    background: #334E40;
+button:active{
+   background: limegreen;
 }
+
