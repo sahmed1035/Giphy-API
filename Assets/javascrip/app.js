@@ -5,7 +5,7 @@ $(function(){
     populateButtons(searchArray,'searchButton','#buttonsArea');
 })
 // creating an array to hold the search terms strings.
-var searchArray = ['winter','snow','kids','holiday','ice-skating','snowflakes', 'ice'];
+var searchArray = ['snowman','dog sled','ice hockey','wind chill factor', 'blizzard','winter wonderland','icicle ', 'frozen', 'snowfall' ,'holidays','ice fishing','holiday','ice-skating','snowflakes', 'ice'];
 
 //creating a function to populate buttons. parameters: searchArray, classToAdd.
 function populateButtons(searchArray, classToAdd,areaToAddTo){
@@ -58,11 +58,11 @@ $(document).on('click', '.searchButton', function(){
                 image.attr('data-state','still');
                 image.addClass('searchImage'); //giving a searchImage class.
                 //displaying the rating of the gifs in the paragraph.
-                searchDiv.append(p); 
+                searchDiv.prepend(p); 
                 //displaying the image
-                searchDiv.append(image);
+                searchDiv.prepend(image);
                 // placing in the searched images in the searches div.
-                $('#searches').append(searchDiv);
+                $('#searches').prepend(searchDiv);
             }
         })
 })
@@ -83,12 +83,14 @@ $(document).on('click', '.searchImage', function(){
 
 //text box can add new buttons.
 $("#addSearch").on("click",function(event){
-
     event.preventDefault();
-    var newSearch = $("input").val(); //.eq for ?
+   
+    var newSearch = $('input').val().trim();   
+    
     searchArray.push(newSearch);
+   
     populateButtons(searchArray, 'searchButton',  '#buttonsArea');
-    // return false; //not to submit and reload the page. only the default search buttons to show
+    return false; //not to submit and reload the page. only the default search buttons to show
     
 });
 

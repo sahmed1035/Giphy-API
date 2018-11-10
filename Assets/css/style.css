@@ -1,3 +1,6 @@
+body {background-image: url("../images/snowflakes_bg_1.jpg")}
+
+
 h1 {font-family: cursive;
 color:rgb(170,2,19);
 text-align: center;
@@ -24,7 +27,7 @@ p{font-family: cursive;
 }
 
 
-#myh1 {background-image: url("../images/snowflakes_bg_1.jpg");
+#myh1 {background-image: url("../images/background.jpeg.jpeg");
     width: 100%;
 }
 
@@ -35,6 +38,7 @@ label {
     margin-bottom: 10px;
     font-family: cursive;
     font-size: 20px;
+    color:rgb(170,2,19);
      float: left;
   
 }
@@ -53,7 +57,7 @@ button,
 input[type="submit"] {
     background:green;
     color: white;
-    border:5px, solid, plum;
+    border:5px, solid gold;
     border-radius: 5px;
     padding: 5px 20px;
     font-size: 20px;
